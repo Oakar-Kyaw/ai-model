@@ -1,8 +1,7 @@
-# Use Ollama's official base image
 FROM ollama/ollama:latest
 
-# Expose Ollama's default port
+# Expose the Ollama API port
 EXPOSE 11434
 
-# Start Ollama on container start
-CMD ["ollama", "serve"]
+# Start Ollama, wait for it to initialize, then pull the Llama model
+CMD ollama serve & sleep 5 && ollama pull llama2 && tail -f /dev/null
