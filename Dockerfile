@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
 RUN curl -fsSL https://ollama.com/install.sh | sh
 
 # Expose Ollama API port
-EXPOSE 1000
+EXPOSE 10000
 
 # Create volume directory for Ollama models
 VOLUME /root/.ollama
